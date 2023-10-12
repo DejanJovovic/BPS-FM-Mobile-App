@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">BPS FM Mobile App</string>
+    <string name="login_text_view">Login</string>
+    <string name="login_message_text_view">Login to your account to continue from where you stopped</string>
+    <string name="emaiL_input">Email address</string>
+    <string name="password_input">Password</string>
+    <string name="forgot_password_text_view">Forgot Password?</string>
+    <string name="login_button">Login</string>
+    <string name="new_business_or_vendor_text_view">New business or vendor?</string>
+    <string name="sign_up_text_view">Sign Up</string>
+    <string name="main_info_text_view">Make informed energy decisions effortlessly with Beacon</string>
+    <string name="login_to_account_text_view">Login to account</string>
 </resources>

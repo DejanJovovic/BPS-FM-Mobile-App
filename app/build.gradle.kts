@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.deksi.bpsfmmobileapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.deksi.bpsfmmobileapp"
@@ -16,6 +16,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
 
     buildTypes {
         release {
