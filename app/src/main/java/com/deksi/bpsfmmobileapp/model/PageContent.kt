@@ -1,4 +1,4 @@
-package com.deksi.bpsfmmobileapp
+package com.deksi.bpsfmmobileapp.model
 
 data class PageContent(
     val imageResId: Int,

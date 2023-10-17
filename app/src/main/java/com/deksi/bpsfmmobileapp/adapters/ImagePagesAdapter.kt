@@ -1,4 +1,4 @@
-package com.deksi.bpsfmmobileapp
+package com.deksi.bpsfmmobileapp.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.deksi.bpsfmmobileapp.model.PageContent
+import com.deksi.bpsfmmobileapp.R
 
 class ImagePagesAdapter(private val pages: List<PageContent>, private val context: Context) : PagerAdapter() {
 

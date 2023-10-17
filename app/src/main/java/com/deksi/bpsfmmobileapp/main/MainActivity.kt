@@ -1,9 +1,14 @@
-package com.deksi.bpsfmmobileapp
+package com.deksi.bpsfmmobileapp.main
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.deksi.bpsfmmobileapp.adapters.ImagePagesAdapter
+import com.deksi.bpsfmmobileapp.login.LoginActivity
+import com.deksi.bpsfmmobileapp.model.PageContent
+import com.deksi.bpsfmmobileapp.R
+import com.deksi.bpsfmmobileapp.signup.SignupActivity
 import com.deksi.bpsfmmobileapp.databinding.ActivityMainBinding
 
 

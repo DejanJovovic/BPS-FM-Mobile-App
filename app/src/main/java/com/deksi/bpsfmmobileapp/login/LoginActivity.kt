@@ -1,9 +1,12 @@
-package com.deksi.bpsfmmobileapp
+package com.deksi.bpsfmmobileapp.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.deksi.bpsfmmobileapp.password.ForgotPasswordActivity
+import com.deksi.bpsfmmobileapp.home.HomeActivity
 import com.deksi.bpsfmmobileapp.databinding.ActivityLoginBinding
+import com.deksi.bpsfmmobileapp.signup.SignupActivity
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
@@ -25,6 +28,9 @@ class LoginActivity : AppCompatActivity() {
 
         binding.buttonLogin.setOnClickListener{
             Snackbar.make(binding.buttonLogin, "Uspeh!", Snackbar.LENGTH_LONG).show()
+            // treba izmeniti
+            val intentLogin = Intent(this, HomeActivity::class.java)
+            startActivity(intentLogin)
         }
 
         binding.textViewSignUp.setOnClickListener {
