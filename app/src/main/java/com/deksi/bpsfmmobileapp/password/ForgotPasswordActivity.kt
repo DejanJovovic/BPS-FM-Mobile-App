@@ -1,9 +1,10 @@
-package com.deksi.bpsfmmobileapp
+package com.deksi.bpsfmmobileapp.password
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.deksi.bpsfmmobileapp.databinding.ActivityForgotPasswordBinding
+import com.deksi.bpsfmmobileapp.login.LoginActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ForgotPasswordActivity : AppCompatActivity() {
@@ -23,6 +24,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
         binding.buttonForgotPasswordSubmit.setOnClickListener {
             Snackbar.make(binding.buttonForgotPasswordSubmit, "Uspeh!", Snackbar.LENGTH_LONG).show()
+            // treba izmeniti
+            val intentSubmit = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(intentSubmit)
         }
 
         binding.textViewBackToLogin.setOnClickListener {
