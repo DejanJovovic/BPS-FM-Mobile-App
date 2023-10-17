@@ -13,22 +13,40 @@
         android:theme="@style/Theme.BPSFMMobileApp"
         tools:targetApi="31">
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".password.ResetPasswordActivity"
             android:exported="false"
-            android:parentActivityName=".LoginActivity"
-            android:label="Forgot Password"/>
+            android:parentActivityName=".password.ForgotPasswordActivity" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".home.HomeActivity"
             android:exported="false"
-            android:label="Sign up"
-            android:parentActivityName=".MainActivity" />
+            android:label="Home"/>
         <activity
-            android:name=".LoginActivity"
+            android:name=".signup.BusinessSignUpActivity"
             android:exported="false"
-            android:label="Log in"
-            android:parentActivityName=".MainActivity" />
+            android:label="Go back"
+            android:parentActivityName=".signup.SignupActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".signup.VendorSignUpActivity"
+            android:exported="false"
+            android:label="Go back"
+            android:parentActivityName=".signup.SignupActivity" />
+        <activity
+            android:name=".password.ForgotPasswordActivity"
+            android:exported="false"
+            android:parentActivityName=".login.LoginActivity"
+            android:label="Forgot password"/>
+        <activity
+            android:name=".signup.SignupActivity"
+            android:exported="false"
+            android:parentActivityName=".main.MainActivity"
+            android:label="Sign up"/>
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false"
+            android:parentActivityName=".main.MainActivity"
+            android:label="Log in"/>
+        <activity
+            android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
