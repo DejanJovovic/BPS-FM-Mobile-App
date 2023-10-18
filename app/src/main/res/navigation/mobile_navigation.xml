@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.deksi.bpsfmmobileapp.home.fragments.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_energy_consumption"
+        android:name="com.deksi.bpsfmmobileapp.home.fragments.EnergyConsumptionFragment"
+        android:label="@string/menu_energy_consumption"
+        tools:layout="@layout/fragment_energy_consumption" />
+
+    <fragment
+        android:id="@+id/nav_diesel_monitoring"
+        android:name="com.deksi.bpsfmmobileapp.home.fragments.DieselMonitoringFragment"
+        android:label="@string/menu_diesel_monitoring"
+        tools:layout="@layout/fragment_diesel_monitoring" />
+</navigation>

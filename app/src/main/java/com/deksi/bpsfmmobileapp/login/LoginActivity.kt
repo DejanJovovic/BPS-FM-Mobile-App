@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.deksi.bpsfmmobileapp.password.ForgotPasswordActivity
-import com.deksi.bpsfmmobileapp.home.HomeActivity
 import com.deksi.bpsfmmobileapp.databinding.ActivityLoginBinding
 import com.deksi.bpsfmmobileapp.signup.SignupActivity
+import com.deksi.bpsfmmobileapp.home.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
