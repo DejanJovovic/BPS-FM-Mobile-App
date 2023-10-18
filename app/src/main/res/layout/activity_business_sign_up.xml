@@ -4,36 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.BusinessSignUpActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".signup.BusinessSignUpActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/business_sign_up_text_view"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/black"
-        android:id="@+id/text_view_business_signup"/>
+        <TextView
+            android:id="@+id/text_view_business_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/business_sign_up_text_view"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/business_signup_info_text_view"
-        android:layout_marginTop="12dp"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="16sp"
-        android:id="@+id/text_view_business_signup_info"/>
+        <TextView
+            android:id="@+id/text_view_business_signup_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/business_signup_info_text_view"
+            android:textSize="16sp" />
 
 
         <LinearLayout
@@ -61,10 +61,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginStart="15dp"
                 android:id="@+id/text_input_business_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="32dp"
                 android:hint="@string/last_name_text_view"
                 app:hintTextColor="@color/black">
@@ -106,9 +106,9 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_business_phone"
-                android:layout_marginStart="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="24dp"
                 android:hint="@string/phone_number_text_view"
                 app:hintTextColor="@color/black">
@@ -199,17 +199,17 @@
 
 
         </com.google.android.material.textfield.TextInputLayout>
-        
-        
+
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_business_get_started"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            style="@style/Widget.MaterialComponents.Button"
             android:backgroundTint="#B20DDF61"
             android:text="@string/get_started_button"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

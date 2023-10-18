@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.VendorSignUpActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".signup.VendorSignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
-        android:layout_marginTop="60dp">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
+            android:id="@+id/text_view_vendor_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vendor_sign_up_text_view"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:fontFamily="sans-serif-black"
+            android:text="@string/vendor_sign_up_text_view"
             android:textColor="@color/black"
-            android:id="@+id/text_view_vendor_signup"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/text_view_vendor_signup_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vendor_info_signup_text_view"
             android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-medium"
-            android:textSize="16sp"
-            android:id="@+id/text_view_vendor_signup_info"/>
+            android:text="@string/vendor_info_signup_text_view"
+            android:textSize="16sp" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -107,13 +107,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_vendor_get_started"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            style="@style/Widget.MaterialComponents.Button"
             android:backgroundTint="#B20DDF61"
             android:text="@string/get_started_button"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
@@ -141,7 +141,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="@+id/text_view_vendor_have_an_account" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

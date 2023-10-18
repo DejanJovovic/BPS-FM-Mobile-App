@@ -13,6 +13,11 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/logo"/>
+
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
+            android:layout_marginTop="30dp"
             android:textSize="20sp"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
 
