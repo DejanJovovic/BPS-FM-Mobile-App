@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BPSFMMobileApp"
@@ -34,17 +34,14 @@
         <activity
             android:name=".password.ForgotPasswordActivity"
             android:exported="false"
-            android:label="Forgot password"
             android:parentActivityName=".login.LoginActivity" />
         <activity
             android:name=".signup.SignupActivity"
             android:exported="false"
-            android:label="Sign up"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".login.LoginActivity"
             android:exported="false"
-            android:label="Log in"
             android:parentActivityName=".main.MainActivity" />
         <activity
             android:name=".main.MainActivity"

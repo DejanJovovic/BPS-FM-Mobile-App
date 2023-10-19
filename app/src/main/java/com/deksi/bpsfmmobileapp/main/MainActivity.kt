@@ -2,6 +2,9 @@ package com.deksi.bpsfmmobileapp.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.deksi.bpsfmmobileapp.adapters.ImagePagesAdapter
@@ -21,6 +24,10 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.action_bar_layout)
 
 
         setUpListeners()
