@@ -32,22 +32,22 @@ class Dashboard {
     )
 
     data class RevenueSummaries(
-        var facilityIdFormatted: String,
-        var facilityName: String,
-        var category: String,
-        var serviceType: String,
+        var facilityIdFormatted: String?,
+        var facilityName: String?,
+        var category: String?,
+        var serviceType: String?,
         var serviceRequestNos: Int,
-        var totalExpense: Int,
-        var previousYear: Int
+        var totalExpense: Double,
+        var previousYear: Double
     )
 
     data class EnergyData(
         var currentValue: Int,
         var previousValue: Int,
         var percentageDiff: Int,
-        var name: String,
+        var name: String?,
         var cost: Int,
-        var energy: Int,
+        var energy: Double,
         var ts: String
     )
 
