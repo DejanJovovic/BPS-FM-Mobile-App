@@ -9,29 +9,29 @@ class Dashboard {
         val accountsCount: Int = 0
         val serviceRequestCount: Int = 3
         val vendorsCount: Int = 1
-        val revenueSummaries: List<revenueSummaries> = listOf()
+        val revenueSummaries: List<RevenueSummaries> = listOf()
         val sumOfServiceRequests: Int = 7
         val sumOfTotalExpenses: Int = 11719
         val sumOfPreviousYear: Double = 459.5541604185411
-        val powerCuts: List<powerCuts> = listOf()
-        val powerCutsNum: List<powerCutsNum> = listOf()
-        val energySavings: List<energySavings> = listOf()
-        val carbonSavings: List<carbonSavings> = listOf()
-        val costSavings: List<costSavings> = listOf()
-        val received: List<received> = listOf()
-        val totalConsumption: List<totalConsumption> = listOf()
-
-        class totalConsumptionSeparated {
-            val gridTotalConsumption: List<gridTotalConsumption> = listOf()
-            val solarTotalConsumption: List<solarTotalConsumption> = listOf()
-        }
-
-        val expected: List<expected> = listOf()
-        val expectedDiesel: List<expectedDiesel> = listOf()
+        val powerCuts: List<EnergyData> = listOf()
+        val powerCutsNum: List<EnergyData> = listOf()
+        val energySavings: List<EnergyData> = listOf()
+        val carbonSavings: List<EnergyData> = listOf()
+        val costSavings: List<EnergyData> = listOf()
+        val received: List<EnergyData> = listOf()
+        val totalConsumption: List<EnergyData> = listOf()
+        val totalConsumptionSeparated: List<TotalConsumptionSeparated> = listOf()
+        val expected: List<EnergyData> = listOf()
+        val expectedDiesel: List<EnergyData> = listOf()
         val revenue: Int = 5600
     }
 
-    data class revenueSummaries (
+    data class TotalConsumptionSeparated(
+        val gridTotalConsumption: List<EnergyData> = listOf(),
+        val solarTotalConsumption: List<EnergyData> = listOf()
+    )
+
+    data class RevenueSummaries(
         var facilityIdFormatted: String,
         var facilityName: String,
         var category: String,
@@ -41,7 +41,7 @@ class Dashboard {
         var previousYear: Int
     )
 
-    data class powerCuts (
+    data class EnergyData(
         var currentValue: Int,
         var previousValue: Int,
         var percentageDiff: Int,
@@ -49,116 +49,6 @@ class Dashboard {
         var cost: Int,
         var energy: Int,
         var ts: String
-    )
-
-    data class powerCutsNum (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class energySavings (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class carbonSavings (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class costSavings (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class received (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class totalConsumption (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class gridTotalConsumption (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class solarTotalConsumption (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class expected (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
-    )
-
-    data class expectedDiesel (
-        var currentValue: Int,
-        var previousValue: Int,
-        var percentageDiff: Int,
-        var name: String,
-        var cost: Int,
-        var energy: Int,
-        var ts: String
-
     )
 
 }
