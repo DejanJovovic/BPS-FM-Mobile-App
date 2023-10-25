@@ -29,12 +29,11 @@ class LoginActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
         setUpListeners()
+        userLogin()
 
     }
 
     private fun setUpListeners() {
-
-        userLogin()
 
         binding.textViewSignUp.setOnClickListener {
 //            Snackbar.make(binding.textViewSignUp, "Radi!", Snackbar.LENGTH_LONG).show()
@@ -55,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.editTextEmail.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://bps-fms-staging.azurewebsites.net/api/auth/")
+                .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val loginService = retrofit.create(LoginApiService::class.java)
@@ -80,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                     else{
-                        Toast.makeText(applicationContext, "Neuspesno", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, "Neuspesno login", Toast.LENGTH_LONG).show()
                     }
                     Toast.makeText(applicationContext, "Email:  $email Password: $password ", Toast.LENGTH_LONG).show()
                 }
@@ -103,7 +102,6 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
-
     }
 
 

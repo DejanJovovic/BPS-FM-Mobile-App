@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.deksi.bpsfmmobileapp.databinding.FragmentEnergyConsumptionBinding
-import com.deksi.bpsfmmobileapp.home.model.EnergyConsumptionViewModel
+import com.deksi.bpsfmmobileapp.home.viewModel.EnergyConsumptionViewModel
 
 class EnergyConsumptionFragment : Fragment() {
 

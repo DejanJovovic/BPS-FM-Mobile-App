@@ -21,5 +21,20 @@
             android:id="@+id/nav_diesel_monitoring"
             android:icon="@drawable/bucket"
             android:title="@string/menu_diesel_monitoring" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/baseline_settings_24"
+            android:title="@string/settings" />
+
+        <item
+            android:id="@+id/nav_support"
+            android:icon="@drawable/baseline_settings_24"
+            android:title="@string/support" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
     </group>
 </menu>

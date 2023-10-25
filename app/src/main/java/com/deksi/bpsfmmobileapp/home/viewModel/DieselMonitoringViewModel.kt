@@ -1,4 +1,4 @@
-package com.deksi.bpsfmmobileapp.home.model
+package com.deksi.bpsfmmobileapp.home.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
