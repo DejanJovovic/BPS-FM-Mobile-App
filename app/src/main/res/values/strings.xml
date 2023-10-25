@@ -60,4 +60,8 @@
     <string name="payment_nav">Payment</string>
     <string name="settings">Settings</string>
     <string name="support">Support</string>
+    <string name="quick_actions">Quick actions</string>
+    <string name="request_service">Request Service</string>
+    <string name="make_payment">Make payment</string>
+    <string name="add_new_guest">Add new guest</string>
 </resources>

@@ -15,4 +15,9 @@
     <color name="grey">#FDE6E5E5</color>
     <color name="darker_grey">#AAA8A3A3</color>
     <color name="dark_blue">#21389C</color>
+    <color name="green">#05AA6C</color>
+    <color name="blue_make_payment">#3877F1</color>
+    <color name="white_add_a_guest">#D6DDE9</color>
+    <color name="button_color">#05AA6C</color>
+    <color name="signup_color">#B6C2D8</color>
 </resources>

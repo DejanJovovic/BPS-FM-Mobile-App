@@ -54,6 +54,7 @@
                     android:id="@+id/edit_text_business_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:inputType="textCapWords"
                     tools:text="First name" />
 
@@ -73,6 +74,7 @@
                     android:id="@+id/edit_text_business_last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:inputType="textCapWords"
                     tools:text="Last name" />
 
@@ -98,6 +100,7 @@
                     android:id="@+id/edit_text_business_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:inputType="textEmailAddress"
                     tools:text="Email address" />
 
@@ -117,6 +120,7 @@
                     android:id="@+id/edit_text_business_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:inputType="phone"
                     tools:text="Phone number" />
 
@@ -137,6 +141,7 @@
                 android:id="@+id/edit_text_business_account_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:inputType="textCapWords"
                 tools:text="Account type" />
 
@@ -156,6 +161,7 @@
                 android:id="@+id/edit_text_business_business_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:inputType="textCapWords"
                 tools:text="Business name" />
 
@@ -175,6 +181,7 @@
                 android:id="@+id/edit_text_business_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:inputType="textCapWords"
                 tools:text="Business type" />
 
@@ -188,12 +195,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/business_address_input"
+            android:background="@color/white"
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_business_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:inputType="textCapWords"
                 tools:text="Business address" />
 
@@ -207,7 +216,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#B20DDF61"
+            android:backgroundTint="@color/button_color"
             android:text="@string/get_started_button"
             android:textColor="@color/white" />
 

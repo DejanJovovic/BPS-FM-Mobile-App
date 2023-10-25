@@ -23,17 +23,13 @@ class SignupActivity : AppCompatActivity() {
         setUpButton()
     }
     private fun setUpListeners() {
-        binding.linearLayout3.setOnClickListener{
-            binding.linearLayout3.setBackgroundResource(R.drawable.round_back_white_stroke)
-            binding.linearLayout4.setBackgroundResource(R.drawable.round_white)
+        binding.cardViewBusinessAccount.setOnClickListener {
             val intentBusiness = Intent(this, BusinessSignUpActivity::class.java)
             startActivity(intentBusiness)
             finish()
         }
 
-        binding.linearLayout4.setOnClickListener {
-            binding.linearLayout4.setBackgroundResource(R.drawable.round_back_white_stroke)
-            binding.linearLayout3.setBackgroundResource(R.drawable.round_white)
+        binding.cardViewVendorAccount.setOnClickListener {
             val intentVendor = Intent(this, VendorSignUpActivity::class.java)
             startActivity(intentVendor)
             finish()

@@ -33,7 +33,6 @@
 
 
     <LinearLayout
-        android:id="@+id/linear_layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
@@ -47,7 +46,7 @@
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#B20DDF61"
+            android:backgroundTint="@color/button_color"
             android:text="@string/login_to_account_text_view"
             android:textColor="@color/white"
             android:textSize="12sp" />

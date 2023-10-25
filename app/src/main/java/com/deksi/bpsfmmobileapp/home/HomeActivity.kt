@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.deksi.bpsfmmobileapp.R
 import com.deksi.bpsfmmobileapp.databinding.ActivityHomeBinding
 import com.deksi.bpsfmmobileapp.home.notifications.NotificationsActivity
+import com.deksi.bpsfmmobileapp.home.quickActions.QuickActionActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -38,9 +39,9 @@ class HomeActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarHome.toolbar)
 
-        binding.appBarHome.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Radi", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        binding.appBarHome.fab.setOnClickListener {
+            val intent = Intent(this, QuickActionActivity::class.java)
+            startActivity(intent)
         }
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
