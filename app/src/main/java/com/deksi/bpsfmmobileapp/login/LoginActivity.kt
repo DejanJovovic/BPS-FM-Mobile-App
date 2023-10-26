@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
     private fun userLogin() {
 
         binding.buttonLogin.setOnClickListener{
-            val email = binding.editTextEmail.text.toString().trim()
+            val email = binding.editTextEmailAddress.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
@@ -91,8 +91,8 @@ class LoginActivity : AppCompatActivity() {
             })
 
             if(email.isEmpty()) {
-                binding.editTextEmail.error = "Email required"
-                binding.editTextEmail.requestFocus()
+                binding.editTextEmailAddress.error = "Email required"
+                binding.editTextEmailAddress.requestFocus()
                 return@setOnClickListener
             }
             if(password.isEmpty()) {

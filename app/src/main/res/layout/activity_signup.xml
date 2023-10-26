@@ -40,13 +40,13 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_business_account"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="28dp"
             app:cardCornerRadius="16dp">
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:background="@color/white" />
 
             <ImageView
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="23dp"
                 android:layout_marginEnd="80dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/business_account_text_view"
@@ -72,14 +72,14 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_vendor_account"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="16dp"
             app:cardCornerRadius="16dp">
 
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:background="@color/white" />
             <ImageView
                 android:layout_width="25dp"
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="23dp"
                 android:layout_marginEnd="80dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/vendor_account_text_view"

@@ -4,6 +4,265 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".home.quickActions.newGuest.NewGuestActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_view_new_guest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/new_guest"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/image_view_x"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/x_icon" />
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_enter_the_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/enter_the_details_for_the_new_guest"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/text_view_guest_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/guest_full_name"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edit_text_guest_full_name"
+            style="@style/NoUnderlineEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textCapWords" />
+
+
+        <TextView
+            android:id="@+id/text_view_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/phone_number"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edit_text_phone_number"
+            style="@style/NoUnderlineEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:inputType="phone" />
+
+
+        <TextView
+            android:id="@+id/text_view_expected_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/expected_date"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edit_text_expected_date"
+                    style="@style/NoUnderlineEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/dd_mm_yyyy"
+                    android:inputType="datetime" />
+
+                <ImageView
+                    android:id="@+id/image_view_date_picker"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="9dp"
+                    android:src="@drawable/calendar" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_expected_stay_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/expected_stay_time"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edit_text_expected_stay_time"
+                style="@style/NoUnderlineEditTextStyle"
+                android:layout_width="119dp"
+                android:layout_height="55dp"
+                android:hint="@string/hh_mm"
+                android:inputType="time" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="55dp">
+
+
+                <TextView
+                    android:id="@+id/text_view_am"
+                    style="@style/NoUnderlineEditTextStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="55dp"
+                    android:hint="@string/am" />
+
+                <ImageView
+                    android:id="@+id/image_view_angle_down"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/angle_down" />
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/image_view_divider_line"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/divider_line" />
+
+
+            <EditText
+                android:id="@+id/edit_text_expected_stay_time2"
+                style="@style/NoUnderlineEditTextStyle"
+                android:layout_width="115dp"
+                android:layout_height="55dp"
+                android:hint="@string/hh_mm"
+                android:inputType="time" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="55dp">
+
+
+                <TextView
+                    android:id="@+id/text_view_am2"
+                    style="@style/NoUnderlineEditTextStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="55dp"
+                    android:hint="@string/am" />
+
+                <ImageView
+                    android:id="@+id/image_view_angle_down2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/angle_down" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_cancel"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/cancel"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_save"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:backgroundTint="@color/button_color"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/save"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

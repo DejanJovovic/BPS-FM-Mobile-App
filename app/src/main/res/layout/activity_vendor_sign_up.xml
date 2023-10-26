@@ -35,79 +35,106 @@
             android:textSize="16sp" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_business_name"
+        <TextView
+            android:id="@+id/text_view_business_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="@string/business_name_input"
-            app:hintTextColor="@color/black">
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/business_name_input"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_business_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:inputType="textCapWords"
-                tools:text="Business name" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/edit_text_business_name"
+            style="@style/NoUnderlineEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textCapWords" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_vendor_email"
+
+        <TextView
+            android:id="@+id/text_view_email_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="@string/emaiL_input"
-            app:hintTextColor="@color/black">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_vendor_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:inputType="textEmailAddress"
-                tools:text="Email address" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/email_address_text_view"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_vendor_phone_number"
+        <EditText
+            android:id="@+id/edit_text_email_address"
+            style="@style/NoUnderlineEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textEmailAddress" />
+
+
+        <TextView
+            android:id="@+id/text_view_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="@string/phone_number_input"
-            app:hintTextColor="@color/black">
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/phone_number"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_vendor_phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:inputType="phone"
-                tools:text="Phone number" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/edit_text_phone_number"
+            style="@style/NoUnderlineEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:inputType="phone" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_vendor_type"
+
+        <TextView
+            android:id="@+id/text_view_account_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="@string/vendor_type_input"
-            app:hintTextColor="@color/black">
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/vendor_type_input"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_vendor_type"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:inputType="textCapWords"
-                tools:text="Vendor type" />
+                android:layout_marginTop="8dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/edit_text_vendor_type"
+                    style="@style/NoUnderlineEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="textCapWords" />
 
+                <ImageView
+                    android:id="@+id/image_view_angle_down"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/angle_down" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_vendor_get_started"
