@@ -5,16 +5,16 @@
     android:layout_height="@dimen/nav_header_height"
     android:background="@color/white"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
         android:orientation="horizontal">
 
 
@@ -35,5 +35,7 @@
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:text="@string/nav_header_title" />
 
+
     </LinearLayout>
+
 </LinearLayout>

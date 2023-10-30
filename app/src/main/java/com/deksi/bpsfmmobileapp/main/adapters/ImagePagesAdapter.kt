@@ -1,4 +1,4 @@
-package com.deksi.bpsfmmobileapp.adapters
+package com.deksi.bpsfmmobileapp.main.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

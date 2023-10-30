@@ -7,7 +7,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import com.deksi.bpsfmmobileapp.adapters.ImagePagesAdapter
+import com.deksi.bpsfmmobileapp.main.adapters.ImagePagesAdapter
 import com.deksi.bpsfmmobileapp.login.LoginActivity
 import com.deksi.bpsfmmobileapp.model.PageContent
 import com.deksi.bpsfmmobileapp.R
