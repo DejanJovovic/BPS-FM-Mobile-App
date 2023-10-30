@@ -1,9 +1,12 @@
 package com.deksi.bpsfmmobileapp.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -55,15 +58,29 @@ class HomeActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_home)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_energy_consumption, R.id.nav_diesel_monitoring
+                R.id.nav_home
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+
+
 //       getDashboardData()
 
+        receiveEmail()
+
     }
+
+    private fun receiveEmail() {
+        val receivedEmail = intent
+        val email = receivedEmail.getStringExtra("email")
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        val headerView = navigationView.getHeaderView(0)
+        val textView = headerView.findViewById<TextView>(R.id.text_view_email)
+        textView.text = email
+    }
+
 
 //   private fun getDashboardData() {
 //

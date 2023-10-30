@@ -1,5 +1,6 @@
 package com.deksi.bpsfmmobileapp.login
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,9 @@ import com.deksi.bpsfmmobileapp.password.ForgotPasswordActivity
 import com.deksi.bpsfmmobileapp.databinding.ActivityLoginBinding
 import com.deksi.bpsfmmobileapp.signup.SignupActivity
 import com.deksi.bpsfmmobileapp.home.HomeActivity
+import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
+import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,15 +71,34 @@ class LoginActivity : AppCompatActivity() {
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
                 ) {
-                    if(response.isSuccessful) {
+                    if (response.isSuccessful) {
                         val loginResponse = response.body()
                         val userData = response.body()
-                        if(loginResponse != null) {
-                            val token = loginResponse.token
-                            val userId = loginResponse.userId
+                        if (loginResponse != null) {
+                            val token = userData?.token
+                            val userId = userData?.userId
+
+                            if (token != null) {
+                                val sharedPrefs = getSharedPreferences("Token", Context.MODE_PRIVATE)
+                                val editor = sharedPrefs.edit()
+                                editor.putString("token", token)
+                                editor.apply()
+
+
+                                val authenticatedApiService = createAuthenticatedApiService(token)
+                                val requestDashboard = DashboardRequest(16, "11-09-2023", "12-10-2023")
+                                val dashboardResponse = authenticatedApiService.getDashboardData(requestDashboard)
+
+                                if(dashboardResponse.isSuccessful){
+                                    val data = dashboardResponse.body()
+                                }
+                            }
+
 
                             val intent = Intent(applicationContext, HomeActivity::class.java)
+                            intent.putExtra("email", email)
                             startActivity(intent)
+                            finish()
                         }
                     }
                     else{
@@ -104,5 +127,24 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun createAuthenticatedApiService(token: String?): DashboardApiService {
+        val client = OkHttpClient.Builder()
+            .addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer $token") // Include the token in the request headers
+                    .build()
+                chain.proceed(request)
+            }
+            .build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
+            .addConverterFactory(GsonConverterFactory.create()) // Use Moshi or Gson for JSON parsing
+            .client(client)
+            .build()
+
+        return retrofit.create(DashboardApiService::class.java)
+    }
 
 }
