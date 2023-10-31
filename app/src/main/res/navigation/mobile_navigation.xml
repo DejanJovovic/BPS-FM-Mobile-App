@@ -9,4 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.deksi.bpsfmmobileapp.home.fragments.HomeFragment"
         tools:layout="@layout/fragment_home" />
+
+    <activity
+        android:id="@+id/nav_notifications"
+        android:name="com.deksi.bpsfmmobileapp.home.notifications.NotificationsActivity"
+        tools:layout="@layout/activity_notifications"/>
+
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.deksi.bpsfmmobileapp.login.LoginActivity"
+        tools:layout="@layout/activity_login"/>
 </navigation>

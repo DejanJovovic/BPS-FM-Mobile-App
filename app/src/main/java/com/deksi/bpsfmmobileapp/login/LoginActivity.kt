@@ -14,6 +14,7 @@ import com.deksi.bpsfmmobileapp.signup.SignupActivity
 import com.deksi.bpsfmmobileapp.home.HomeActivity
 import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
 import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
+import com.deksi.bpsfmmobileapp.home.fragments.HomeFragment
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -98,7 +99,6 @@ class LoginActivity : AppCompatActivity() {
                             val intent = Intent(applicationContext, HomeActivity::class.java)
                             intent.putExtra("email", email)
                             startActivity(intent)
-                            finish()
                         }
                     }
                     else{

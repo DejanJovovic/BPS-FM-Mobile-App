@@ -58,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_home)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home
+                R.id.nav_home, R.id.nav_notifications
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -77,8 +77,11 @@ class HomeActivity : AppCompatActivity() {
         val email = receivedEmail.getStringExtra("email")
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         val headerView = navigationView.getHeaderView(0)
-        val textView = headerView.findViewById<TextView>(R.id.text_view_email)
-        textView.text = email
+        val textViewEmail = headerView.findViewById<TextView>(R.id.text_view_email)
+        val textViewWelcome = findViewById<TextView>(R.id.text_view_welcome_back)
+        val displayedText = "Welcome back $email"
+        textViewWelcome.text = displayedText
+        textViewEmail.text = email
     }
 
 

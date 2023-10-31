@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.deksi.bpsfmmobileapp.R
 import com.deksi.bpsfmmobileapp.databinding.FragmentHomeBinding
 import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
 import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
+import com.google.android.material.navigation.NavigationView
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -30,6 +33,7 @@ class HomeFragment : Fragment() {
 
 //        dataLoading()
     }
+
 
 
 //    private fun dataLoading() {
