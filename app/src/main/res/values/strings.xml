@@ -123,4 +123,18 @@
     <string name="apr_12">Apr 12</string>
     <string name="apr_13">Apr 13</string>
     <string name="apr_14">Apr 14</string>
+    <string name="cost_savings">Cost savings</string>
+    <string name="diesel">Diesel</string>
+    <string name="_300_00">₦300.00</string>
+    <string name="_70kwh">70kwh</string>
+    <string name="solar">Solar</string>
+    <string name="gas">Gas</string>
+    <string name="energy_sources">Energy sources</string>
+    <string name="_29_aug_2022_29_sep_2022">29 Aug, 2022 - 29 Sep 2022</string>
+    <string name="grid">Grid</string>
+    <string name="_13">13%</string>
+    <string name="_46">46%</string>
+    <string name="_23">23%</string>
+    <string name="_40">40%</string>
+    <string name="expected_vs_received_vs_spend">Expected vs Received vs Spend</string>
 </resources>

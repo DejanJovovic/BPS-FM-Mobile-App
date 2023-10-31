@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.snackbar.Snackbar
@@ -69,9 +71,9 @@ class HomeActivity : AppCompatActivity() {
 //       getDashboardData()
 
         receiveEmail()
+        setupSpinner()
 
     }
-
     private fun receiveEmail() {
         val receivedEmail = intent
         val email = receivedEmail.getStringExtra("email")
@@ -83,6 +85,17 @@ class HomeActivity : AppCompatActivity() {
         textViewWelcome.text = displayedText
         textViewEmail.text = email
     }
+
+    private fun setupSpinner() {
+        val items = arrayOf("Grid", "Diesel", "Solar", "Gas")
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+    }
+
+
+
 
 
 //   private fun getDashboardData() {
