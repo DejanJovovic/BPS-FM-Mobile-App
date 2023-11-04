@@ -173,7 +173,7 @@ data class solarTotalConsumption(
     @SerializedName("percentageDiff") var percentageDiff: Int? = null,
     @SerializedName("name") var name: String? = null,
     @SerializedName("cost") var cost: Int? = null,
-    @SerializedName("energy") var energy: Int? = null,
+    @SerializedName("energy") var energy: Float? = null,
     @SerializedName("ts") var ts: String? = null
 
 )

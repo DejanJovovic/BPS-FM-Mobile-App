@@ -67,15 +67,15 @@ class HomeFragment : Fragment() {
                         val dashboardResponse = response.body()
                         val textViewAnnoucment = binding.textViewAnnouncement
                         Log.d("Debug", "Dashboard Response: $dashboardResponse")
-                        val accountsCount = dashboardResponse?.message
+                        val accountsCount = dashboardResponse?.transferObject?.powerCuts?.ts
                         Log.d("Debug", "Accounts Count: $accountsCount")
-                        textViewAnnoucment.text = accountsCount.toString()
+                        textViewAnnoucment.text = accountsCount
 
                     }
                 }
 
                 override fun onFailure(call: Call<DashboardResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.e("Error", "Failed to make the API request", t)
                 }
             })
         }

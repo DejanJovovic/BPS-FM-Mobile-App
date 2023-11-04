@@ -95,49 +95,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
-
-
-
-//   private fun getDashboardData() {
-//
-//   }
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl("https://bps-fms-staging.azurewebsites.net/api/dashboard/")
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//        val getDashboardDataService = retrofit.create(DashboardApiService::class.java)
-//
-//        val call = getDashboardDataService.getDashboardData()
-//        call.enqueue(object: Callback<Dashboard> {
-//            override fun onResponse(call: Call<Dashboard>, response: Response<Dashboard>) {
-//                val gson = Gson()
-//
-//                if(response.isSuccessful) {
-//                    val responseJsonDashboard = response.body()
-//                    val dashboard = gson.toJson(responseJsonDashboard, Dashboard::class.java)
-//                    if(dashboard != null) {
-//                        val message = responseJsonDashboard?.message
-//                        val success = responseJsonDashboard?.success
-//                    }
-//
-//                }
-//                else{
-//                    Toast.makeText(applicationContext, "Neuspesno", Toast.LENGTH_LONG).show()
-//                }
-//                Toast.makeText(applicationContext, "Radi", Toast.LENGTH_LONG).show()
-//
-//
-//            }
-//
-//            override fun onFailure(call: Call<Dashboard>, t: Throwable) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
-//
-//    }
-
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_home)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
