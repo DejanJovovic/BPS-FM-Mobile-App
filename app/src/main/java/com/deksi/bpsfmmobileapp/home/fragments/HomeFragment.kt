@@ -1,6 +1,7 @@
 package com.deksi.bpsfmmobileapp.home.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,12 +12,24 @@ import com.deksi.bpsfmmobileapp.databinding.FragmentHomeBinding
 import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
 import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
 import com.deksi.bpsfmmobileapp.home.api.DashboardResponse
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import okhttp3.Headers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class HomeFragment : Fragment() {
 
@@ -38,7 +51,8 @@ class HomeFragment : Fragment() {
         dataLoading()
     }
 
-        private fun dataLoading() {
+
+    private fun dataLoading() {
             val sharedPreferences =
                 requireActivity().getSharedPreferences("AuthToken", Context.MODE_PRIVATE)
             val authToken = sharedPreferences.getString("transferObject", null)
@@ -65,11 +79,9 @@ class HomeFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         val dashboardResponse = response.body()
-                        val textViewAnnoucment = binding.textViewAnnouncement
-                        Log.d("Debug", "Dashboard Response: $dashboardResponse")
-                        val accountsCount = dashboardResponse?.transferObject?.powerCuts?.ts
-                        Log.d("Debug", "Accounts Count: $accountsCount")
-                        textViewAnnoucment.text = accountsCount
+
+                        sliderCards(dashboardResponse)
+                        totalConsumptionSeparatedTabGraph(dashboardResponse)
 
                     }
                 }
@@ -79,4 +91,125 @@ class HomeFragment : Fragment() {
                 }
             })
         }
+
+    private fun sliderCards(dashboardResponse: DashboardResponse?) {
+
+        /// *** powerCuts card ***
+        val textViewCurrentValuePowerCuts = binding.textViewCurrentValuePowerCuts
+        val currentValuePowerCuts = dashboardResponse?.transferObject?.powerCuts?.currentValue
+        textViewCurrentValuePowerCuts.text = currentValuePowerCuts.toString()
+
+        val textViewPreviousValuePowerCuts = binding.textViewPreviousValuePowerCuts
+        val previousValuePowerCuts = dashboardResponse?.transferObject?.powerCuts?.previousValue
+        textViewPreviousValuePowerCuts.text = previousValuePowerCuts.toString()
+
+        val textViewPercentageDiffPowerCuts = binding.textViewPercentageDiffPowerCuts
+        val percentageDiffPowerCuts = dashboardResponse?.transferObject?.powerCuts?.percentageDiff.toString()
+        val formattedPercentageDiffPowerCuts = "$percentageDiffPowerCuts%"
+        textViewPercentageDiffPowerCuts.text = formattedPercentageDiffPowerCuts
+
+
+        /// *** powerCutsNum card ***
+        val textViewCurrentValuePowerCutsNum = binding.textViewCurrentValuePowerCutsNum
+        val currentValuePowerCutsNum = dashboardResponse?.transferObject?.powerCutsNum?.currentValue
+        textViewCurrentValuePowerCutsNum.text = currentValuePowerCutsNum.toString()
+
+        val textViewPreviousValuePowerCutsNum = binding.textViewPreviousValuePowerCutsNum
+        val previousValuePowerCutsNum = dashboardResponse?.transferObject?.powerCutsNum?.previousValue
+        textViewPreviousValuePowerCutsNum.text = previousValuePowerCutsNum.toString()
+
+        val textViewPercentageDiffPowerCutsNum = binding.textViewPercentageDiffPowerCutsNum
+        val percentageDiffPowerCutsNum = dashboardResponse?.transferObject?.powerCutsNum?.percentageDiff.toString()
+        val formattedPercentageDiffPowerCutsNum = "$percentageDiffPowerCutsNum%"
+        textViewPercentageDiffPowerCutsNum.text = formattedPercentageDiffPowerCutsNum
+
+
+
+        /// *** energySavings card ***
+        val textViewCurrentValueEnergySavings = binding.textViewCurrentValueEnergySavings
+        val currentValueEnergySavings = dashboardResponse?.transferObject?.energySavings?.currentValue
+        textViewCurrentValueEnergySavings.text = currentValueEnergySavings.toString()
+
+        val textViewPreviousValueEnergySavings = binding.textViewPreviousValueEnergySavings
+        val previousValueEnergySavings = dashboardResponse?.transferObject?.energySavings?.previousValue
+        textViewPreviousValueEnergySavings.text = previousValueEnergySavings.toString()
+
+        val textViewPercentageDiffEnergySavings = binding.textViewPercentageDiffEnergySavings
+        val percentageDiffEnergySavings = dashboardResponse?.transferObject?.energySavings?.percentageDiff.toString()
+        val formattedPercentageDiffEnergySavings = "$percentageDiffEnergySavings%"
+        textViewPercentageDiffEnergySavings.text = formattedPercentageDiffEnergySavings
+
+
+
+        /// *** carbonSavings card ***
+        val textViewCurrentValueCarbonSavings = binding.textViewCurrentValueCarbonSavings
+        val currentValueCarbonSavings = dashboardResponse?.transferObject?.carbonSavings?.currentValue
+        textViewCurrentValueCarbonSavings.text = currentValueCarbonSavings.toString()
+
+        val textViewPreviousValueCarbonSavings = binding.textViewPreviousValueCarbonSavings
+        val previousValueCarbonSavings = dashboardResponse?.transferObject?.carbonSavings?.previousValue
+        textViewPreviousValueCarbonSavings.text = previousValueCarbonSavings.toString()
+
+        val textViewPercentageDiffCarbonSavings = binding.textViewPercentageDiffCarbonSavings
+        val percentageDiffCarbonSavings = dashboardResponse?.transferObject?.energySavings?.percentageDiff.toString()
+        val formattedPercentageDiffCarbonSavings = "$percentageDiffCarbonSavings%"
+        textViewPercentageDiffCarbonSavings.text = formattedPercentageDiffCarbonSavings
+
     }
+
+
+    private fun totalConsumptionSeparatedTabGraph(dashboardResponse: DashboardResponse?) {
+        val totalConsumptionSeparated = dashboardResponse?.transferObject?.totalConsumptionSeparated
+        val gridTotalConsumption = totalConsumptionSeparated?.gridTotalConsumption
+
+        val barChart = binding.totalConsumptionSeperatedBarChart
+
+        val entries = mutableListOf<BarEntry>()
+
+        val customLabelsX = arrayOf("Apr 1", "Apr 2", "Apr 3", "Apr 4",
+            "Apr 5", "Apr 6", "Apr 7", "Apr 8", "Apr 9", "Apr 10", "Apr 11", "Apr 12", "Apr 13", "Apr 14",
+            "Apr 15", "Apr 16", "Apr 17", "Apr 18", "Apr 19", "Apr 20", "Apr 21", "Apr 22", "Apr 23",
+            "Apr 24", "Apr 25", "Apr 26", "Apr 27", "Apr 28", "Apr 29", "Apr 30", "Apr 31"
+            )
+
+        for (i in 0 until (gridTotalConsumption?.size ?: 0)) {
+            val energy = gridTotalConsumption?.get(i)?.energy ?: 0f
+            entries.add(BarEntry(i.toFloat(), energy))
+        }
+
+        val dataSet = BarDataSet(entries, "Grid total consumption")
+        dataSet.setDrawValues(true)
+        dataSet.valueTextColor = Color.BLACK
+
+
+        val barData = BarData(dataSet)
+        dataSet.color = Color.BLUE
+
+
+
+        val xAxis = barChart.xAxis
+        xAxis.valueFormatter = IndexAxisValueFormatter(customLabelsX)
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.labelCount = customLabelsX.size
+        xAxis.labelRotationAngle = -70f
+        xAxis.granularity = 1f
+
+        val leftYAxis = barChart.axisLeft
+        val rightYAxis = barChart.axisRight
+
+        leftYAxis.setDrawLabels(false)
+        leftYAxis.setDrawGridLines(false)
+
+        rightYAxis.setDrawLabels(false)
+        rightYAxis.setDrawGridLines(false)
+
+
+        barChart.legend.isEnabled = false
+        barChart.description.isEnabled = false
+        barChart.data = barData
+        barChart.invalidate()
+
+        }
+
+
+}

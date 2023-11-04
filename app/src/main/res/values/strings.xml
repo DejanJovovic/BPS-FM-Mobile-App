@@ -164,4 +164,5 @@
     <string name="electrical_repairs">Electrical • Repairs</string>
     <string name="cleaning_repairs">Cleaning • Repairs</string>
     <string name="pending">Pending</string>
+    <string name="vs_last_month">vs Last month</string>
 </resources>
