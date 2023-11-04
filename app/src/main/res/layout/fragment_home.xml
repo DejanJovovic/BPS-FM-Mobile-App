@@ -75,6 +75,25 @@
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text_view_accounts_count"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:layout_marginTop="60dp"
+                                android:padding="6dp"
+                                android:text="@string/power_cuts"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
 
                     </androidx.cardview.widget.CardView>
 

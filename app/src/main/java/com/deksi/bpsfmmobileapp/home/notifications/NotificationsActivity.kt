@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.deksi.bpsfmmobileapp.R
 import com.deksi.bpsfmmobileapp.home.adapters.NotificationsAdapter
 import com.deksi.bpsfmmobileapp.databinding.ActivityNotificationsBinding
-import com.deksi.bpsfmmobileapp.home.model.Notifications
+import com.deksi.bpsfmmobileapp.home.notifications.model.Notifications
 
 class NotificationsActivity : AppCompatActivity() {
 

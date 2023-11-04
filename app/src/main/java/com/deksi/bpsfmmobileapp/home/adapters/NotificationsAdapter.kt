@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.deksi.bpsfmmobileapp.R
-import com.deksi.bpsfmmobileapp.home.model.Notifications
+import com.deksi.bpsfmmobileapp.home.notifications.model.Notifications
 
 class NotificationsAdapter(context: Context, private val items: List<Notifications>) :
     ArrayAdapter<Notifications>(context, R.layout.list_item, items) {

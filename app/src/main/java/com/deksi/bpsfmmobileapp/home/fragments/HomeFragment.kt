@@ -1,16 +1,20 @@
 package com.deksi.bpsfmmobileapp.home.fragments
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.deksi.bpsfmmobileapp.R
 import com.deksi.bpsfmmobileapp.databinding.FragmentHomeBinding
 import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
 import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
-import com.google.android.material.navigation.NavigationView
+import com.deksi.bpsfmmobileapp.home.api.DashboardResponse
+import okhttp3.Headers
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -31,40 +35,48 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        dataLoading()
+        dataLoading()
     }
 
+        private fun dataLoading() {
+            val sharedPreferences =
+                requireActivity().getSharedPreferences("AuthToken", Context.MODE_PRIVATE)
+            val authToken = sharedPreferences.getString("transferObject", null)
+
+            val headers = HashMap<String, String>()
+            authToken?.let {
+                headers["Authorization"] = "Bearer $it"
+            }
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            val dashboardApiService = retrofit.create(DashboardApiService::class.java)
+            val requestDashboard = DashboardRequest(16, "11-09-2023", "12-10-2023")
 
 
-//    private fun dataLoading() {
-//
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//
-//        val requestDashboard = DashboardRequest(16, "11-09-2023", "12-10-2023")
-//        val dashboardApiService = retrofit.create(DashboardApiService::class.java)
-//        val responseDashboard = dashboardApiService.getDashboardData()
-//
-//
-//        if (responseDashboard.isSuccessful) {
-//            val dataResponse = responseDashboard.body()
-//            val transferObject = dataResponse?.transferObject
-//
-//            if (transferObject != null) {
-//                // Step 7: Use items to populate your UI components
-//                val specificItem = transferObject // Use the first item as an example
-//                val itemName = specificItem.transferObject.powerCuts
-////                val itemDescription = specificItem.description
-//
-//                // Update your UI components with the specific data
-//                binding.textViewWelcomeBack.text = itemName.toString()
-////                textViewDescription.text = itemDescription
-//            }
-//
-//
-//        }
-//
-//    }
-}
+            val call = dashboardApiService.getDashboardData(requestDashboard, Headers.of(headers))
+            call.enqueue(object : Callback<DashboardResponse> {
+                override fun onResponse(
+                    call: Call<DashboardResponse>,
+                    response: Response<DashboardResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val dashboardResponse = response.body()
+                        val textViewAnnoucment = binding.textViewAnnouncement
+                        Log.d("Debug", "Dashboard Response: $dashboardResponse")
+                        val accountsCount = dashboardResponse?.message
+                        Log.d("Debug", "Accounts Count: $accountsCount")
+                        textViewAnnoucment.text = accountsCount.toString()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<DashboardResponse>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
+    }

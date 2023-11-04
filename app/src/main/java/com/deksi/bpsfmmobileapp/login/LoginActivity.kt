@@ -14,8 +14,8 @@ import com.deksi.bpsfmmobileapp.signup.SignupActivity
 import com.deksi.bpsfmmobileapp.home.HomeActivity
 import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
 import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
-import com.deksi.bpsfmmobileapp.home.fragments.HomeFragment
-import okhttp3.OkHttpClient
+import com.deksi.bpsfmmobileapp.home.api.DashboardResponse
+import okhttp3.Headers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.textViewForgotPassword.setOnClickListener{
+        binding.textViewForgotPassword.setOnClickListener {
             val intentForgotPassword = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intentForgotPassword)
         }
@@ -55,56 +55,64 @@ class LoginActivity : AppCompatActivity() {
 
     private fun userLogin() {
 
-        binding.buttonLogin.setOnClickListener{
+        binding.buttonLogin.setOnClickListener {
+
             val email = binding.editTextEmailAddress.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
+
+            if (email.isEmpty()) {
+                binding.editTextEmailAddress.error = "Email required"
+                binding.editTextEmailAddress.requestFocus()
+                return@setOnClickListener
+            }
+            if (password.isEmpty()) {
+                binding.editTextPassword.error = "Password required"
+                binding.editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+
             val loginService = retrofit.create(LoginApiService::class.java)
 
             val loginRequest = LoginRequest(email, password)
 
             val call = loginService.login(loginRequest)
-            call.enqueue(object: Callback<LoginResponse>{
+            call.enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val loginResponse = response.body()
-                        val userData = response.body()
-                        if (loginResponse != null) {
-                            val token = userData?.token
-                            val userId = userData?.userId
+                        val token = response.body()?.transferObject
+                        val userId = response.body()?.userId
 
-                            if (token != null) {
-                                val sharedPrefs = getSharedPreferences("Token", Context.MODE_PRIVATE)
-                                val editor = sharedPrefs.edit()
-                                editor.putString("token", token)
-                                editor.apply()
+                        if (token != null) {
+                            val sharedPrefs = getSharedPreferences("AuthToken", Context.MODE_PRIVATE)
+                            val editor = sharedPrefs.edit()
+                            editor.putString("transferObject", token)
+                            editor.apply()
 
-
-                                val authenticatedApiService = createAuthenticatedApiService(token)
-                                val requestDashboard = DashboardRequest(16, "11-09-2023", "12-10-2023")
-                                val dashboardResponse = authenticatedApiService.getDashboardData(requestDashboard)
-
-                                if(dashboardResponse.isSuccessful){
-                                    val data = dashboardResponse.body()
-                                }
-                            }
-
-
-                            val intent = Intent(applicationContext, HomeActivity::class.java)
-                            intent.putExtra("email", email)
-                            startActivity(intent)
+//                            fetchDashboardDataWithAuthToken(token)
                         }
+
+
+                        val intent = Intent(applicationContext, HomeActivity::class.java)
+                        intent.putExtra("email", email)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(applicationContext, "Wrong email or password", Toast.LENGTH_LONG)
+                            .show()
                     }
-                    else{
-                        Toast.makeText(applicationContext, "Neuspesno login", Toast.LENGTH_LONG).show()
-                    }
-                    Toast.makeText(applicationContext, "Email:  $email Password: $password ", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Email:  $email Password: $password ",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -113,38 +121,61 @@ class LoginActivity : AppCompatActivity() {
 
             })
 
-            if(email.isEmpty()) {
-                binding.editTextEmailAddress.error = "Email required"
-                binding.editTextEmailAddress.requestFocus()
-                return@setOnClickListener
-            }
-            if(password.isEmpty()) {
-                binding.editTextPassword.error = "Password required"
-                binding.editTextPassword.requestFocus()
-                return@setOnClickListener
-            }
-
         }
     }
 
 
-    private fun createAuthenticatedApiService(token: String?): DashboardApiService {
-        val client = OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $token") // Include the token in the request headers
-                    .build()
-                chain.proceed(request)
-            }
-            .build()
+    private fun fetchDashboardDataWithAuthToken(token: String) {
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
-            .addConverterFactory(GsonConverterFactory.create()) // Use Moshi or Gson for JSON parsing
-            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        return retrofit.create(DashboardApiService::class.java)
+        val dashboardApiService = retrofit.create(DashboardApiService::class.java)
+
+        val headers = HashMap<String, String>()
+        headers["Authorization"] = "Bearer $token"
+
+        val dashboardRequestData = DashboardRequest(16, "11-09-2023", "12-10-2023")
+        val call = dashboardApiService.getDashboardData(dashboardRequestData, Headers.of(headers))
+
+        call.enqueue(object : Callback<DashboardResponse> {
+            override fun onResponse(call: Call<DashboardResponse>, response: Response<DashboardResponse>) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+
+                    //samo test
+//                    val fragmentHomeLayout = layoutInflater.inflate(R.layout.fragment_home, null)
+//                    val textViewAccountsCount = fragmentHomeLayout.findViewById<TextView>(R.id.text_view_accounts_count)
+//                    textViewAccountsCount.text = data?.revenueSummaries?.serviceType
+                } else {
+                }
+            }
+
+            override fun onFailure(call: Call<DashboardResponse>, t: Throwable) {
+            }
+        })
     }
+
+    //        val client = OkHttpClient.Builder()
+//            .addInterceptor { chain ->
+//                val request = chain.request().newBuilder()
+//                    .addHeader(
+//                        "Authorization",
+//                        "Bearer $token"
+//                    ) // Include the token in the request headers
+//                    .build()
+//                chain.proceed(request)
+//            }
+//            .build()
+//
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
+//            .addConverterFactory(GsonConverterFactory.create()) // Use Moshi or Gson for JSON parsing
+//            .client(client)
+//            .build()
+//
+//        return retrofit.create(DashboardApiService::class.java)
 
 }

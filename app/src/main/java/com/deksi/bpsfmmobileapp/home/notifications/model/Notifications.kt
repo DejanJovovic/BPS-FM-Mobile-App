@@ -1,4 +1,4 @@
-package com.deksi.bpsfmmobileapp.home.model
+package com.deksi.bpsfmmobileapp.home.notifications.model
 
 data class Notifications (
 
