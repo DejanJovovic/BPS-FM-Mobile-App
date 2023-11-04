@@ -165,4 +165,8 @@
     <string name="cleaning_repairs">Cleaning • Repairs</string>
     <string name="pending">Pending</string>
     <string name="vs_last_month">vs Last month</string>
+    <string name="accounts">Accounts</string>
+    <string name="revenue">Revenue</string>
+    <string name="vendors">Vendors</string>
+    <string name="service_requests">Service requests</string>
 </resources>
