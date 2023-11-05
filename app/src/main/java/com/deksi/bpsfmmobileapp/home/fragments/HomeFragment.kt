@@ -22,7 +22,11 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.PercentFormatter
 import okhttp3.Headers
 import retrofit2.Call
 import retrofit2.Callback
@@ -83,6 +87,7 @@ class HomeFragment : Fragment() {
                     cards(dashboardResponse)
                     sliderCards(dashboardResponse)
                     totalConsumptionSeparatedTabGraph(dashboardResponse)
+                    pieChart(dashboardResponse)
                     lineGraphs(dashboardResponse)
 
                 }
@@ -272,20 +277,45 @@ class HomeFragment : Fragment() {
     }
 
 
+    private fun pieChart(dashboardResponse: DashboardResponse?) {
+
+        val energySources = dashboardResponse?.transferObject?.energySources
+
+        val entries = energySources?.map { source ->
+            source.energy?.let { PieEntry(it.toFloat(), source.name) }
+        }
+
+        val dataSet = PieDataSet(entries, "Energy Sources")
+
+        dataSet.colors = listOf(Color.parseColor("#05AA6C"), Color.parseColor("#4E5BA6")
+            , Color.parseColor("#F79009"), Color.parseColor("#EE46BC"))
+        dataSet.valueTextSize = 12f
+
+        val pieData = PieData(dataSet)
+        pieData.setValueFormatter(PercentFormatter())
+
+        val pieChart = binding.pieChartEnergySources
+
+        pieChart.data = pieData
+        pieChart.isDrawHoleEnabled = true
+        pieChart.holeRadius = 20f
+        pieChart.setUsePercentValues(true)
+        pieChart.description.isEnabled = false
+        pieChart.legend.isEnabled = false
+
+        pieChart.invalidate()
+
+    }
+
     private fun lineGraphs(dashboardResponse: DashboardResponse?) {
 
-        // needs fixing
-        val actual = dashboardResponse?.transferObject?.energySources
+        // graph consists of: expectedDiesel, received, solarTotalConsumption?
+        val actual = dashboardResponse?.transferObject?.expectedDiesel
         val received = dashboardResponse?.transferObject?.received
         val expectedSolar = dashboardResponse?.transferObject?.totalConsumptionSeparated?.solarTotalConsumption
 
         val lineChart = binding.lineChartReceivedExpectedActual
 
-
-        val customLabelsX = arrayOf(
-            "Sep 1", "Sep 3", "Sep 6", "Sep 9",
-            "Sep 12", "Sep 15", "Sep 18", "Sep 21", "Sep 24", "Sep 27", "Sep 30"
-        )
 
         val entriesActual = actual?.mapIndexed { index, data ->
             data.energy?.let { Entry(index.toFloat(), it.toFloat()) }
@@ -316,10 +346,8 @@ class HomeFragment : Fragment() {
 
 
         val xAxis = lineChart.xAxis
-        xAxis.valueFormatter = IndexAxisValueFormatter(customLabelsX)
-        xAxis.position = XAxis.XAxisPosition.BOTTOM
-        xAxis.labelCount = customLabelsX.size
-        xAxis.granularity = 1f
+        xAxis.setDrawLabels(false)
+        xAxis.setDrawGridLines(false)
 
         val leftYAxis = lineChart.axisLeft
         val rightYAxis = lineChart.axisRight

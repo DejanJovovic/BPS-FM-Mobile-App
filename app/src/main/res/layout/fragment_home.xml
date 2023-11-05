@@ -1461,126 +1461,112 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginTop="36dp"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
 
 
-                    <View
-                        android:id="@+id/rectangle"
-                        android:layout_width="28dp"
-                        android:layout_height="4dp"
-                        android:layout_marginStart="250dp"
-                        android:layout_marginTop="48dp"
-                        android:background="@drawable/rectangle" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="250dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/grid" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="248dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/_13"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:layout_width="186dp"
+                        android:layout_height="182dp"
+                        android:id="@+id/pie_chart_energy_sources">
 
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-
-                    <View
-                        android:id="@+id/rectangle2"
-                        android:layout_width="28dp"
-                        android:layout_height="4dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="48dp"
-                        android:background="@drawable/rectangle_diesel" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="45dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/diesel" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/_46"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    </com.github.mikephil.charting.charts.PieChart>
 
 
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
 
-                    <View
-                        android:id="@+id/rectangle3"
-                        android:layout_width="28dp"
-                        android:layout_height="4dp"
-                        android:layout_marginStart="250dp"
-                        android:layout_marginTop="48dp"
-                        android:background="@drawable/rectangle_solar" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="248dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/solar" />
+                        android:orientation="vertical">
 
-                    <TextView
+
+                        <View
+                            android:id="@+id/rectangle"
+                            android:layout_width="28dp"
+                            android:layout_height="4dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="48dp"
+                            android:background="@drawable/rectangle" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/grid" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/_84_3"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="248dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/_23"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+
+
+                        <View
+                            android:id="@+id/rectangle2"
+                            android:layout_width="28dp"
+                            android:layout_height="4dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="48dp"
+                            android:background="@drawable/rectangle_diesel" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="45dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/diesel" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/_0_0"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -1588,40 +1574,86 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
 
-                    <View
-                        android:id="@+id/rectangle4"
-                        android:layout_width="28dp"
-                        android:layout_height="4dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="48dp"
-                        android:background="@drawable/rectangle_gas" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/gas" />
+                        android:orientation="vertical">
 
-                    <TextView
+
+                        <View
+                            android:id="@+id/rectangle3"
+                            android:layout_width="28dp"
+                            android:layout_height="4dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="48dp"
+                            android:background="@drawable/rectangle_solar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="22dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/solar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/_15_7"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/_40"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+
+
+                        <View
+                            android:id="@+id/rectangle4"
+                            android:layout_width="28dp"
+                            android:layout_height="4dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="48dp"
+                            android:background="@drawable/rectangle_gas" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/gas" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/_0_0"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
+
 
         </LinearLayout>
 
@@ -1909,15 +1941,112 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:orientation="vertical">
 
-                    <com.github.mikephil.charting.charts.LineChart
-                        android:id="@+id/line_chart_received_expected_actual"
-                        android:layout_width="650dp"
-                        android:layout_height="280dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/line_chart_received_expected_actual"
+                            android:layout_width="645dp"
+                            android:layout_height="280dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="48dp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_6" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_9" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_12" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_18" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_21" />
+
+                        <TextView
+                            android:layout_marginStart="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_24" />
+
+                        <TextView
+                            android:layout_marginStart="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_27" />
+
+
+                        <TextView
+                            android:layout_marginStart="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/sep_30" />
+
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
