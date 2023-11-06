@@ -1,16 +1,10 @@
 package com.deksi.bpsfmmobileapp.home
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
-import androidx.appcompat.app.ActionBar
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -37,11 +31,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         val imageViewNotifications = binding.appBarHome.imageViewAppbarNotification
 
-        // treba da centriram title
-//        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-//        supportActionBar?.setCustomView(R.layout.action_bar_layout_dashboard)
-
-
         imageViewNotifications.setOnClickListener {
             val intentNotification = Intent(this, NotificationsActivity::class.java)
             startActivity(intentNotification)
@@ -65,10 +54,6 @@ class HomeActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
-
-//       getDashboardData()
 
         receiveEmail()
         setupSpinner()

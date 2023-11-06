@@ -56,21 +56,26 @@
             />
 
         <item
-            android:id="@+id/nav_settings"
             android:orderInCategory="11"
+            android:title=""
+            />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:orderInCategory="12"
             android:icon="@drawable/baseline_settings_24"
             android:title="@string/settings" />
 
         <item
             android:id="@+id/nav_support"
-            android:orderInCategory="12"
+            android:orderInCategory="13"
             android:icon="@drawable/baseline_settings_24"
             android:title="@string/support" />
 
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout"
-            android:orderInCategory="13"
+            android:orderInCategory="14"
             android:title="@string/logout" />
     </group>
 </menu>
