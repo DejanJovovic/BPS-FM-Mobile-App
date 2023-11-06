@@ -7,11 +7,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.res.TypedArrayUtils.getResourceId
 import androidx.fragment.app.Fragment
 import com.deksi.bpsfmmobileapp.databinding.FragmentHomeBinding
 import com.deksi.bpsfmmobileapp.home.api.DashboardApiService
 import com.deksi.bpsfmmobileapp.home.api.DashboardRequest
 import com.deksi.bpsfmmobileapp.home.api.DashboardResponse
+import com.deksi.bpsfmmobileapp.home.model.revenueSummaries
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
@@ -89,6 +92,7 @@ class HomeFragment : Fragment() {
                     totalConsumptionSeparatedTabGraph(dashboardResponse)
                     pieChart(dashboardResponse)
                     lineGraphs(dashboardResponse)
+                    revenueSummariesData(dashboardResponse)
 
                 }
             }
@@ -281,14 +285,25 @@ class HomeFragment : Fragment() {
 
         val energySources = dashboardResponse?.transferObject?.energySources
 
+        val totalEnergy = energySources?.sumByDouble { it.energy!! }
+
+        // i need to create a textView in the middle of the pieChart and set the totalEnergy
+//        val totalEnergyText = "$totalEnergy kWh"
+//        val energyText = binding.
+//        energyText.text = totalEnergyText
+
         val entries = energySources?.map { source ->
             source.energy?.let { PieEntry(it.toFloat(), source.name) }
         }
 
         val dataSet = PieDataSet(entries, "Energy Sources")
 
-        dataSet.colors = listOf(Color.parseColor("#05AA6C"), Color.parseColor("#4E5BA6")
-            , Color.parseColor("#F79009"), Color.parseColor("#EE46BC"))
+        dataSet.colors = listOf(
+            Color.parseColor("#05AA6C"),
+            Color.parseColor("#4E5BA6"),
+            Color.parseColor("#F79009"),
+            Color.parseColor("#EE46BC")
+        )
         dataSet.valueTextSize = 12f
 
         val pieData = PieData(dataSet)
@@ -312,7 +327,8 @@ class HomeFragment : Fragment() {
         // graph consists of: expectedDiesel, received, solarTotalConsumption?
         val actual = dashboardResponse?.transferObject?.expectedDiesel
         val received = dashboardResponse?.transferObject?.received
-        val expectedSolar = dashboardResponse?.transferObject?.totalConsumptionSeparated?.solarTotalConsumption
+        val expectedSolar =
+            dashboardResponse?.transferObject?.totalConsumptionSeparated?.solarTotalConsumption
 
         val lineChart = binding.lineChartReceivedExpectedActual
 
@@ -371,6 +387,49 @@ class HomeFragment : Fragment() {
     }
 
 
+    private fun revenueSummariesData(dashboardResponse: DashboardResponse?) {
+
+        dashboardResponse?.transferObject?.revenueSummaries?.let { revenueSummaries ->
+            for ((index, summary) in revenueSummaries.withIndex()) {
+                val cardIndex = when (summary.serviceType) {
+                    "Electrical" -> 1
+                    "Furniture" -> 2
+                    "Generator" -> 3
+                    "Plumbing" -> 4
+                    "Power" -> 5
+                    "Other" -> 6
+                    "CleaningAndJanitorial" -> 7
+                    else -> index + 1
+                }
+
+                val serviceTypeTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_service_type$cardIndex"))
+                val serviceRequestNosTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_service_request_nos$cardIndex"))
+                val totalExpenseTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_total_expense$cardIndex"))
+                val previousYearTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_previous_year$cardIndex"))
+
+
+                serviceTypeTextView.text = summary.serviceType
+                serviceRequestNosTextView.text = "${summary.serviceRequestNos} Service Requests"
+                totalExpenseTextView.text = "${summary.totalExpense}"
+                previousYearTextView.text = "${summary.previousYear}%"
+                
+            }
+        }
+    }
+
+    private fun getResourceId(baseId: String): Int {
+        return requireActivity().resources.getIdentifier(
+            baseId,
+            "id",
+            requireActivity().packageName
+        )
+    }
 }
+
+
 
 

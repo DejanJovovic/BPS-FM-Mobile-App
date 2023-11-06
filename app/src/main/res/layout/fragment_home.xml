@@ -1110,6 +1110,7 @@
                             android:id="@+id/total_consumption_seperated_bar_chart"
                             android:layout_width="800dp"
                             android:layout_height="360dp" />
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1460,26 +1461,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="50dp"
             android:orientation="horizontal">
 
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:orientation="vertical">
 
 
-                    <com.github.mikephil.charting.charts.PieChart
-                        android:layout_width="186dp"
-                        android:layout_height="182dp"
-                        android:id="@+id/pie_chart_energy_sources">
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pie_chart_energy_sources"
+                    android:layout_width="186dp"
+                    android:layout_height="182dp">
 
 
-                    </com.github.mikephil.charting.charts.PieChart>
+                </com.github.mikephil.charting.charts.PieChart>
 
 
             </LinearLayout>
@@ -1649,7 +1650,6 @@
 
 
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -1986,58 +1986,58 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="15dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_9" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="15dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_12" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="15dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_15" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="15dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_18" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_marginStart="15dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_21" />
 
                         <TextView
-                            android:layout_marginStart="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_24" />
 
                         <TextView
-                            android:layout_marginStart="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_27" />
 
 
                         <TextView
-                            android:layout_marginStart="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:fontFamily="sans-serif-light"
                             android:text="@string/sep_30" />
 
@@ -2046,7 +2046,6 @@
 
 
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -2058,7 +2057,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
             android:orientation="horizontal">
 
             <TextView
@@ -2068,7 +2066,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/recent_service_requests"
+                android:text="@string/revenue_summary"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -2078,15 +2076,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp">
 
 
                 <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/view_pager_view_all"
-                    android:layout_width="90dp"
+                    android:id="@+id/view_pager_this_month5"
+                    android:layout_width="140dp"
                     android:layout_height="50dp"
                     android:background="@drawable/round_shape" />
 
@@ -2096,8 +2093,17 @@
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="14dp"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/view_all"
+                    android:text="@string/this_month"
                     android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/chevron_down" />
+
 
             </androidx.cardview.widget.CardView>
 
@@ -2105,10 +2111,12 @@
         </LinearLayout>
 
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="70dp"
+            android:layout_marginTop="36dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -2117,46 +2125,25 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/text_view_service_type1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/fur_17"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="Electrical" />
 
 
-                <androidx.cardview.widget.CardView
+                <TextView
+                    android:id="@+id/text_view_total_expense1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp">
-
-
-                    <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/view_pager_open"
-                        android:layout_width="57dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/drawable_open" />
-
-
-                    <ImageView
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="4dp"
-                        android:src="@drawable/ellipse_115" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:text="@string/open"
-                        android:textColor="#08875D" />
-
-                </androidx.cardview.widget.CardView>
-
+                    android:layout_marginStart="220dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
 
             </LinearLayout>
 
@@ -2166,22 +2153,39 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/text_view_service_request_nos1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/plumbing_routines"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="15 Service Requests" />
 
-                <TextView
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="105dp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/_15_jan_2022"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:layout_marginStart="20dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
 
                 <ImageView
                     android:layout_width="25dp"
@@ -2196,50 +2200,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/text_view_service_type2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/fur_17"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="Furniture" />
 
 
-                <androidx.cardview.widget.CardView
+                <TextView
+                    android:id="@+id/text_view_total_expense2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp">
-
-
-                    <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/view_pager_open1"
-                        android:layout_width="57dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/drawable_open" />
-
-
-                    <ImageView
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="4dp"
-                        android:src="@drawable/ellipse_115" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:text="@string/open"
-                        android:textColor="#08875D" />
-
-                </androidx.cardview.widget.CardView>
-
+                    android:layout_marginStart="221dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
 
             </LinearLayout>
 
@@ -2249,22 +2232,39 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/text_view_service_request_nos2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/electrical_repairs"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="7 Service Requests" />
 
-                <TextView
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="115dp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/_15_jan_2022"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:layout_marginStart="127dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
 
                 <ImageView
                     android:layout_width="25dp"
@@ -2279,50 +2279,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/text_view_service_type3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/fur_17"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="Generator" />
 
 
-                <androidx.cardview.widget.CardView
+                <TextView
+                    android:id="@+id/text_view_total_expense3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="222dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp">
-
-
-                    <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/view_pager_open2"
-                        android:layout_width="73dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/drawable_pending" />
-
-
-                    <ImageView
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="4dp"
-                        android:src="@drawable/orange_eclipse" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:text="@string/pending"
-                        android:textColor="#B25E09" />
-
-                </androidx.cardview.widget.CardView>
-
+                    android:layout_marginStart="213dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
 
             </LinearLayout>
 
@@ -2332,35 +2311,369 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/text_view_service_request_nos3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/cleaning_repairs"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="1 Service Requests" />
 
-                <TextView
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="115dp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/_15_jan_2022"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:layout_marginStart="124dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/arrow_ios_right"
                     app:tint="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_type4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="Plumbing" />
+
+
+                <TextView
+                    android:id="@+id/text_view_total_expense4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="213dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_request_nos4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="2 Service Requests" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="128dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arrow_ios_right"
+                    app:tint="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_type5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="Power" />
+
+
+                <TextView
+                    android:id="@+id/text_view_total_expense5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="237dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_request_nos5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="1 Service Requests" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="128dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arrow_ios_right"
+                    app:tint="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_type6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="Other" />
+
+
+                <TextView
+                    android:id="@+id/text_view_total_expense6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="250dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_request_nos6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="1 Service Requests" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="128dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arrow_ios_right"
+                    app:tint="@color/black" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_type7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="CleaningAndJanitorial" />
+
+
+                <TextView
+                    android:id="@+id/text_view_total_expense7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="₦100,000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_service_request_nos7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="1 Service Requests" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="128dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/vector" />
+
+                    <TextView
+                        android:id="@+id/text_view_previous_year7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#E02D3C"
+                        tools:text="4.51%" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arrow_ios_right"
+                    app:tint="@color/black" />
+
 
             </LinearLayout>
 
 
         </LinearLayout>
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 </ScrollView>
