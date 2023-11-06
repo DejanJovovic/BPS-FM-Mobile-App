@@ -81,7 +81,7 @@ class HomeActivity : AppCompatActivity() {
         val headerView = navigationView.getHeaderView(0)
         val textViewEmail = headerView.findViewById<TextView>(R.id.text_view_email)
         val textViewWelcome = findViewById<TextView>(R.id.text_view_welcome_back)
-        val displayedText = "Welcome back $email"
+        val displayedText = "Welcome back $email,"
         textViewWelcome.text = displayedText
         textViewEmail.text = email
     }

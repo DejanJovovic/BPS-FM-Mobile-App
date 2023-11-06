@@ -97,7 +97,6 @@ class LoginActivity : AppCompatActivity() {
                             editor.putString("transferObject", token)
                             editor.apply()
 
-//                            fetchDashboardDataWithAuthToken(token)
                         }
 
 
@@ -123,59 +122,4 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
-
-
-    private fun fetchDashboardDataWithAuthToken(token: String) {
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val dashboardApiService = retrofit.create(DashboardApiService::class.java)
-
-        val headers = HashMap<String, String>()
-        headers["Authorization"] = "Bearer $token"
-
-        val dashboardRequestData = DashboardRequest(16, "11-09-2023", "12-10-2023")
-        val call = dashboardApiService.getDashboardData(dashboardRequestData, Headers.of(headers))
-
-        call.enqueue(object : Callback<DashboardResponse> {
-            override fun onResponse(call: Call<DashboardResponse>, response: Response<DashboardResponse>) {
-                if (response.isSuccessful) {
-                    val data = response.body()
-
-                    //samo test
-//                    val fragmentHomeLayout = layoutInflater.inflate(R.layout.fragment_home, null)
-//                    val textViewAccountsCount = fragmentHomeLayout.findViewById<TextView>(R.id.text_view_accounts_count)
-//                    textViewAccountsCount.text = data?.revenueSummaries?.serviceType
-                } else {
-                }
-            }
-
-            override fun onFailure(call: Call<DashboardResponse>, t: Throwable) {
-            }
-        })
-    }
-
-    //        val client = OkHttpClient.Builder()
-//            .addInterceptor { chain ->
-//                val request = chain.request().newBuilder()
-//                    .addHeader(
-//                        "Authorization",
-//                        "Bearer $token"
-//                    ) // Include the token in the request headers
-//                    .build()
-//                chain.proceed(request)
-//            }
-//            .build()
-//
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl("https://bps-fms-staging.azurewebsites.net/api/")
-//            .addConverterFactory(GsonConverterFactory.create()) // Use Moshi or Gson for JSON parsing
-//            .client(client)
-//            .build()
-//
-//        return retrofit.create(DashboardApiService::class.java)
-
 }

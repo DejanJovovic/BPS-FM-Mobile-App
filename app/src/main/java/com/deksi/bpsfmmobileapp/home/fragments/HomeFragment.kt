@@ -90,6 +90,7 @@ class HomeFragment : Fragment() {
                     cards(dashboardResponse)
                     sliderCards(dashboardResponse)
                     totalConsumptionSeparatedTabGraph(dashboardResponse)
+                    costSavingsData(dashboardResponse)
                     pieChart(dashboardResponse)
                     lineGraphs(dashboardResponse)
                     revenueSummariesData(dashboardResponse)
@@ -102,6 +103,7 @@ class HomeFragment : Fragment() {
             }
         })
     }
+
 
     private fun cards(dashboardResponse: DashboardResponse?) {
 
@@ -281,6 +283,35 @@ class HomeFragment : Fragment() {
     }
 
 
+    private fun costSavingsData(dashboardResponse: DashboardResponse?) {
+
+        dashboardResponse?.transferObject?.costSavings?.let { costSavings ->
+            for ((index, summary) in costSavings.withIndex()) {
+                val cardIndex = when (summary.name) {
+                    "Diesel" -> 1
+                    "Solar" -> 2
+                    "Gas" -> 3
+                    else -> index + 1
+                }
+
+                val costSavingsNameTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_cost_savings_name$cardIndex"))
+                val costSavingsCostTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_cost_savings_cost$cardIndex"))
+                val costSavingsEnergyTextView =
+                    binding.root.findViewById<TextView>(getResourceId("text_view_cost_savings_energy$cardIndex"))
+
+
+                costSavingsNameTextView.text = summary.name
+                costSavingsCostTextView.text = "${summary.cost}"
+                costSavingsEnergyTextView.text = "${summary.energy}kWh"
+
+            }
+        }
+
+    }
+
+
     private fun pieChart(dashboardResponse: DashboardResponse?) {
 
         val energySources = dashboardResponse?.transferObject?.energySources
@@ -416,7 +447,7 @@ class HomeFragment : Fragment() {
                 serviceRequestNosTextView.text = "${summary.serviceRequestNos} Service Requests"
                 totalExpenseTextView.text = "${summary.totalExpense}"
                 previousYearTextView.text = "${summary.previousYear}%"
-                
+
             }
         }
     }
