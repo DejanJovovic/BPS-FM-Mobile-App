@@ -107,11 +107,11 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Wrong email or password", Toast.LENGTH_LONG)
                             .show()
                     }
-                    Toast.makeText(
-                        applicationContext,
-                        "Email:  $email Password: $password ",
-                        Toast.LENGTH_LONG
-                    ).show()
+//                    Toast.makeText(
+//                        applicationContext,
+//                        "Email:  $email Password: $password ",
+//                        Toast.LENGTH_LONG
+//                    ).show()
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
