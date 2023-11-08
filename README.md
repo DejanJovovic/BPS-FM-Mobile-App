@@ -1,1 +1,1 @@
-Kotlin internship project based on energy sources with API calls.
+Android internship project related to electricity consumption using graphs.
